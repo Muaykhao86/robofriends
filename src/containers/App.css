@@ -12,3 +12,11 @@ h1 {
   font-weight: 200;
   color: #0ccac4;
 }
+
+.hoverGlow:hover{
+   box-shadow: 0 0 2rem .8rem rgba( 255, 255, 255, 0.8 )
+}
+
+.backGradient{
+ background: radial-gradient(ellipse at center, rgb(23, 54, 141) 0%, rgba(0,128,128,1) 100%);
+}
