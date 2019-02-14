@@ -11,7 +11,7 @@ import registerServiceWorker from './registerServiceWorker';
 import 'tachyons';
 import { searchRobots, requestRobots } from './redux/reducers';
 import {
-    BrowserRouter as Router,
+    HashRouter as Router,
     Route,
     Switch
   } from 'react-router-dom';
