@@ -5,6 +5,7 @@ import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
 import './App.css';
 import ErrorBoundary from '../components/ErrorBoundary';
+import { withRouter } from 'react-router-dom'
 
 
 import {setSearchField, requestRobots} from '../redux/actions';
@@ -63,4 +64,4 @@ class App extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps )(App);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps )(App));
