@@ -11,7 +11,7 @@ import registerServiceWorker from './registerServiceWorker';
 import 'tachyons';
 import { searchRobots, requestRobots } from './redux/reducers';
 import {
-    HashRouter as Router,
+    BrowserRouter as Router,
     Route,
     Switch
   } from 'react-router-dom';
@@ -32,7 +32,7 @@ const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunkMid
 // The provider wraps the app and is responsible for providing the store to all the components in APP
 ReactDOM.render(
     <Provider store={store}>
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
         <div className="tc">
         <h1 className='mt5 f2'>RoboFriends</h1>
 
