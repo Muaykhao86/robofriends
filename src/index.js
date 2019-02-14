@@ -37,13 +37,12 @@ ReactDOM.render(
         <h1 className='mt5 f2'>RoboFriends</h1>
 
         <Switch>
-        <Route exact path="/" component={Home}/>
-        <Route path="/App" component={App}/>>
-
+        <Route  path="/" component={Home} exact/>
+        <Route path="/App" component={App}/>
         </Switch>
         </div>
     </Router>
-    </Provider>,document.getElementById('root'));
+    </Provider> ,document.getElementById('root'));
                
                 
 registerServiceWorker();
