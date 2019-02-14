@@ -6,7 +6,8 @@ import Scroll from '../components/Scroll';
 import './App.css';
 import ErrorBoundary from '../components/ErrorBoundary';
 
-import {setSearchField, requestRobots} from '../actions';
+
+import {setSearchField, requestRobots} from '../redux/actions';
 
 /////////connect(mapStateToProps, mapDispatchToProps)///////////////////////
 
@@ -44,11 +45,12 @@ class App extends Component {
     const filteredRobots = robots.filter(robot =>{
       return robot.name.toLowerCase().includes(searchField.toLowerCase());
     })
-    return isPending ?
+    return (
+
+    isPending ?
       <h1>Loading</h1> :
       (
-        <div className='tc'>
-          <h1 className='mt5 f2'>RoboFriends</h1>
+        <div className=''>
           <SearchBox searchChange={onSearchChange}/>
           <Scroll>
             <ErrorBoundary>
@@ -56,7 +58,8 @@ class App extends Component {
             </ErrorBoundary>
           </Scroll>
         </div>
-      );
+      ))
+
   }
 }
 

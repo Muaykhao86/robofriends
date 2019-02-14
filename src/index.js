@@ -6,9 +6,16 @@ import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import { createLogger } from 'redux-logger';
 import thunkMiddleware from 'redux-thunk';
 import App from './containers/App';
+import Home from './components/Home';
 import registerServiceWorker from './registerServiceWorker';
 import 'tachyons';
-import { searchRobots, requestRobots } from './reducers';
+import { searchRobots, requestRobots } from './redux/reducers';
+import {
+    BrowserRouter as Router,
+    Route,
+    Switch
+  } from 'react-router-dom';
+
 
 const logger = createLogger();// redux-logger
 
@@ -25,7 +32,17 @@ const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunkMid
 // The provider wraps the app and is responsible for providing the store to all the components in APP
 ReactDOM.render(
     <Provider store={store}>
-        <App /> 
+    <Router>
+        <div className="tc">
+        <h1 className='mt5 f2'>RoboFriends</h1>
+
+        <Switch>
+        <Route exact path="/" component={Home}/>
+        <Route path="/App" component={App}/>>
+
+        </Switch>
+        </div>
+    </Router>
     </Provider>,document.getElementById('root'));
                
                 
