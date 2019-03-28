@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
+import Header from '../components/Header';
 import './App.css';
 import ErrorBoundary from '../components/ErrorBoundary';
 import { withRouter } from 'react-router-dom'
@@ -28,7 +29,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch) => {
   return{
     onSearchChange: (event) => dispatch(setSearchField(event.target.value)),
-    onRequestRobots: () => dispatch(requestRobots())//Is the same as requestRobots(dispatch
+    onRequestRobots: () => dispatch(requestRobots())//Is the same as requestRobots(dispatch)
   }
 }
 /////////////////////////////////////////////////////////////////////////////
@@ -47,19 +48,19 @@ class App extends Component {
       return robot.name.toLowerCase().includes(searchField.toLowerCase());
     })
     return (
-
-    isPending ?
-      <h1>Loading</h1> :
-      (
-        <div className=''>
-          <SearchBox searchChange={onSearchChange}/>
+      <div className='tc'>
+        <Header/>
+        <SearchBox searchChange={onSearchChange}/>
           <Scroll>
-            <ErrorBoundary>
-              <CardList robots={filteredRobots} />
-            </ErrorBoundary>
+            {isPending ? 
+                <h1>Loading</h1> :
+                <ErrorBoundary>
+                  <CardList robots={filteredRobots} />
+                </ErrorBoundary>
+            }
           </Scroll>
-        </div>
-      ))
+      </div>
+      )
 
   }
 }

@@ -16,7 +16,13 @@ import {
     Switch
   } from 'react-router-dom';
 
+//   Below - why-did-you-update to check for avoidable rerenders in app => https://github.com/maicki/why-did-you-update
+//   Will only be used in dev enviroment
 
+if (process.env.NODE_ENV !== 'production') {
+  const {whyDidYouUpdate} = require('why-did-you-update');
+  whyDidYouUpdate(React);
+}
 const logger = createLogger();// redux-logger
 
 //Below
@@ -34,12 +40,10 @@ ReactDOM.render(
     <Provider store={store}>
     <Router basename={process.env.PUBLIC_URL}>
         <div className="tc">
-        <h1 className='mt5 f2'>RoboFriends</h1>
-
-        <Switch>
-        <Route  path="/" component={Home} exact/>
-        <Route path="/App" component={App}/>
-        </Switch>
+            <Switch>
+                <Route  path="/" component={Home} exact/>
+                <Route path="/App" component={App}/>
+            </Switch>
         </div>
     </Router>
     </Provider> ,document.getElementById('root'));
