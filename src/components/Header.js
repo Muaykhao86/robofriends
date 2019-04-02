@@ -12,7 +12,7 @@ class Header extends Component {
         return  (
         <div className="">
         <h1 className='mt5 f2'>RoboFriends</h1>
-        {/* <CounterButton color={'red'}/> */}
+        <CounterButton color={'red'}/>
         </div>
         )
     }

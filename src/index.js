@@ -41,8 +41,8 @@ ReactDOM.render(
     <Router basename={process.env.PUBLIC_URL}>
         <div className="tc">
             <Switch>
-                <Route  path="/" component={Home} exact/>
-                <Route path="/App" component={App}/>
+                {/* <Route  path="/" component={Home} exact/> */}
+                <Route path="/" component={App}/>
             </Switch>
         </div>
     </Router>
