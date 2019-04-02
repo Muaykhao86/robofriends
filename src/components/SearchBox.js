@@ -5,6 +5,7 @@ const SearchBox = ({ searchfield, searchChange }) => {
   return (
     <div className='pa2'>
       <input
+        aria-label ="Search Robots" /*For screen readers => /*pwa/lighthouse fix*/
         className='pa3 ba b--green bg-lightest-blue mb5'
         type='search'
         placeholder='search robots'
